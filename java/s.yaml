@@ -19,7 +19,7 @@ services:
         # ossBucket:
         # ossKey:  # conflict with codeUri
         handler: example.App::handleRequest
-        memorySize: 128
+        memorySize: 1536
         timeout: 60
         initializationTimeout: 60
         initializer: example.App::initialize
