@@ -21,7 +21,7 @@ services:
         name: fc-build-demo
         description: 'hello world by serverless devs'
       function:
-        name: pyHttpFunc2
+        name: pyHttpFunc
         handler: index.handler
         timeout: 60
         memorySize: 1536
