@@ -21,6 +21,8 @@ public class App implements StreamRequestHandler, FunctionInitializer {
     @Override
     public void handleRequest(
             InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+        String result = new String(inputStream.readAllBytes());
+        System.out.println(result);
         outputStream.write(new String("hello world\n").getBytes());
     }
 }

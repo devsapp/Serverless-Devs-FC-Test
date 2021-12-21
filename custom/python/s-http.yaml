@@ -14,7 +14,7 @@ vars:
   region: cn-hangzhou
 services:
   helloworld:
-    component: fc@dev
+    component: devsapp/fc@dev
     props:
       region: ${vars.region}
       service:
@@ -23,13 +23,12 @@ services:
       function:
         name: pyHttpFunc
         handler: index.handler
-        timeout: 30
-        initializationTimeout: 20
-        initializer: index.init
+        timeout: 60
         memorySize: 1536
         runtime: custom
         codeUri: ./code
-        instanceConcurrency: 4
+        caPort: 9000
+        instanceConcurrency: 2
       triggers:
         - name: http_t
           type: http

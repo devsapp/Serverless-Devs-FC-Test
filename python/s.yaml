@@ -4,7 +4,7 @@ access: "quanxi"  #  秘钥别名
 
 services:
   fc-deploy-test:
-    component: devsapp/fc@dev@dev  # 组件名称
+    component: devsapp/fc@dev # 组件名称
     props: #  组件的属性值
       region: cn-hangzhou
       service:

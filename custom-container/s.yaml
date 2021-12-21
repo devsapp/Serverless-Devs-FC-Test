@@ -5,7 +5,7 @@ vars:
   region: cn-shenzhen
 services:
   customContainer-build-demo:
-    component: devsapp/fc@dev@dev
+    component: devsapp/fc@dev
     props:
       region: ${vars.region}
       service:
