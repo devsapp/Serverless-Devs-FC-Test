@@ -19,7 +19,7 @@ and they lived at the bottom of a well.</p>
 
 def handler(event, context):
     logger = logging.getLogger()
-    logger.info('hello world')
+    logger.info(event)
     soup = BeautifulSoup(html_doc, 'html.parser')
     print(soup.prettify())
-    return 'hello world'
+    return event

@@ -18,16 +18,6 @@ app = Flask(__name__)
 REQUEST_ID_HEADER = 'x-fc-request-id'
 
 
-@app.route('/initialize', methods=['POST'])
-def init_invoke():
-    rid = request.headers.get(REQUEST_ID_HEADER)
-    print("FC Initialize Start RequestId: " + rid)
-    # do your things
-
-    print("FC Initialize End RequestId: " + rid)
-    return "OK"
-
-
 @app.route('/invoke', methods=['POST'])
 def event_invoke():
     rid = request.headers.get(REQUEST_ID_HEADER)

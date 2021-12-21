@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+rm -rf ~/.s/components/devsapp.cn/fc@dev
 
 # Test Java Runtime
 echo "test java8 runtime ..."
@@ -93,5 +94,5 @@ s invoke -e '{"hello":"fc"}'
 
 echo "test custom python runtime http function ..."
 rm -rf .s
-s build -d
-s deploy -y --use-local -t s-http.yaml 
+s build -d -t s-http.yaml
+s deploy -y --use-local -t s-http.yaml
