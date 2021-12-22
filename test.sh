@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-rm -rf ~/.s/components/devsapp.cn/fc@dev
+s clean --all 
 
 # Test Java Runtime
 echo "test java8 runtime ..."
@@ -17,6 +17,9 @@ s build -d -t s-java11.yaml
 s local invoke -e '{"hello":"fc"}' -t s-java11.yaml
 s deploy -y --use-local -t s-java11.yaml
 s invoke -e '{"hello":"fc"}' -t s-java11.yaml
+
+echo "remove all"
+s remove -y
 
 # Test Nodjs Runtime
 cd ../nodejs
@@ -47,6 +50,9 @@ s local invoke -e '{"hello":"fc"}' -t s-node8.yaml
 s deploy -y --use-local -t s-node8.yaml
 s invoke -e '{"hello":"fc"}' -t s-node8.yaml
 
+echo "remove all"
+s remove -y
+
 # Test Python Runtime
 cd ../python
 echo "test python3.6 runtime ..."
@@ -63,6 +69,9 @@ s local invoke -e '{"hello":"fc"}' -t s-python2.yaml
 s deploy -y --use-local -t s-python2.yaml
 s invoke -e '{"hello":"fc"}' -t s-python2.yaml
 
+echo "remove all"
+s remove -y
+
 # Test Php7.2 Runtime
 cd ../php
 echo "test php7.2 runtime ..."
@@ -72,6 +81,9 @@ s local invoke -e '{"hello":"fc"}'
 s deploy -y --use-local
 s invoke -e '{"hello":"fc"}'
 
+echo "remove all"
+s remove -y
+
 # Test custom container
 cd ../custom-container
 echo "test custom-container runtime ..."
@@ -80,6 +92,10 @@ s build -d
 s local invoke -e '{"hello":"fc"}'
 s deploy -y --use-local
 s invoke -e '{"hello":"fc"}'
+
+echo "remove all"
+s remove -y
+
 
 # Test custom runtime
 cd ../custom
@@ -96,3 +112,6 @@ echo "test custom python runtime http function ..."
 rm -rf .s
 s build -d -t s-http.yaml
 s deploy -y --use-local -t s-http.yaml
+
+echo "remove all"
+s remove -y

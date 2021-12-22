@@ -9,11 +9,7 @@ services:
     props:
       region: ${vars.region}
       service:
-        name: customContainer-build-demo
-        role:
-          name: customContainer-build-demo-DefaultRole
-          policies:
-            - AliyunContainerRegistryReadOnlyAccess
+        name: fc-build-demo
         internetAccess: true
       function:
         name: event-function

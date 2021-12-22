@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-rm -rf ~/.s/components/devsapp.cn/fc@dev
+s clean --all
 
 # Test Java Runtime
 echo "test java8 runtime ..."
@@ -17,3 +17,6 @@ s build -d -t s-java11.yaml
 s local invoke -e '{"hello":"fc"}' -t s-java11.yaml
 s deploy -y --use-local -t s-java11.yaml
 s invoke -e '{"hello":"fc"}' -t s-java11.yaml
+
+echo "remove all"
+s remove -y
