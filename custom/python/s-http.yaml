@@ -14,7 +14,7 @@ vars:
   region: cn-hangzhou
 services:
   helloworld:
-    component: devsapp/fc@dev
+    component: devsapp/fc
     props:
       region: ${vars.region}
       service:
