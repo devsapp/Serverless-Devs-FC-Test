@@ -2,6 +2,7 @@
 set -x
 s clean --all
 
+export core_load_serverless_devs_component="devsapp/fc-build@dev;devsapp/fc-core@dev;devsapp/fc-local-invoke@dev"
 
 # Test custom runtime
 cd custom
