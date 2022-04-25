@@ -71,6 +71,13 @@ s local invoke -e '{"hello":"fc"}' -t s-python2.yaml
 s deploy -y --use-local -t s-python2.yaml
 s invoke -e '{"hello":"fc"}' -t s-python2.yaml
 
+echo "test python3.9 runtime ..."
+rm -rf .s
+s build -d -t s-python39.yaml
+s local invoke -e '{"hello":"fc"}' -t s-python39.yaml
+s deploy -y --use-local -t s-python39.yaml
+s invoke -e '{"hello":"fc"}' -t s-python39.yaml
+
 echo "remove all"
 s remove -y
 
