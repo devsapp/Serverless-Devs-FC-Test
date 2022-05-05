@@ -29,6 +29,21 @@ jobs:
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test
+      - name: test python
         run: |
-          bash test.sh
+          bash test-python.sh
+      - name: test nodejs
+        run: |
+          bash test-node.sh
+      - name: test php
+        run: |
+          bash test-php.sh
+      - name: test custom 
+        run: |
+          bash test-cr.sh
+      - name: test custom container
+        run: |
+          bash test-ccr.sh
+      - name: test java
+        run: |
+          bash test-java.sh
