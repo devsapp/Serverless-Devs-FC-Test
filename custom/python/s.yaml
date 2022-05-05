@@ -28,3 +28,10 @@ services:
         runtime: custom
         codeUri: ./code
         instanceConcurrency: 2
+        customRuntimeConfig:
+          command:
+            - gunicorn
+          args:
+            - '-c'
+            - 'gunicorn_conf.py'
+            - 'server:app'
