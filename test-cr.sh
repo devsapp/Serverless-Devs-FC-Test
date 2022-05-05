@@ -20,6 +20,3 @@ echo "test custom python runtime http function ..."
 rm -rf .s
 s build -d -t s-http.yaml
 s deploy -y --use-local -t s-http.yaml
-
-echo "remove all"
-s remove -y
