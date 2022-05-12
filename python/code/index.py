@@ -16,6 +16,8 @@ and they lived at the bottom of a well.</p>
 <p class="story">...</p>
 """
 
+import fc2
+
 
 def handler(event, context):
     logger = logging.getLogger()
