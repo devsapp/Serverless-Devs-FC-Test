@@ -11,7 +11,7 @@ edition: 1.0.0
 name: helloworldApp
 access: "quanxi"
 vars:
-  region: cn-hangzhou
+  region: cn-shenzhen
 services:
   helloworld:
     component: devsapp/fc
