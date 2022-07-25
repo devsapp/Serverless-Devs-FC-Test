@@ -12,7 +12,7 @@ services:
         name: fc-build-demo
         internetAccess: true
       function:
-        name: event-function
+        name: event-container-function
         description: event function powered by flask
         handler: not-used
         timeout: 60
