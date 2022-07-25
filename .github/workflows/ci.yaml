@@ -47,3 +47,6 @@ jobs:
       - name: test java
         run: |
           bash test-java.sh
+      - name: test fc-backend
+        run: |
+          bash test-fc-backend.sh
