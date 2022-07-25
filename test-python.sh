@@ -1,9 +1,8 @@
 #!/bin/bash
 set -x
 set -e
-s clean --all
 
-export core_load_serverless_devs_component='devsapp/fc-deploy@dev'
+export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-core@dev'
 
 # Test Python Runtime
 cd python
