@@ -32,6 +32,7 @@ def handler(event, context):
     soup = BeautifulSoup(html_doc, 'html.parser')
     print(soup.prettify())
     out_bytes = subprocess.check_output(["which", "git"])
+    print(out_bytes)
     if isPython3():
-        assert out_bytes == b'/code/.s/root/usr/bin/git'
+        assert out_bytes == b'/code/.s/root/usr/bin/git\n'
     return event
