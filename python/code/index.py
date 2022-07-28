@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import subprocess
+import fc2
 from bs4 import BeautifulSoup
 import logging
 
@@ -16,7 +18,12 @@ and they lived at the bottom of a well.</p>
 <p class="story">...</p>
 """
 
-import fc2
+
+def isPython3():
+    import sys
+    if sys.version > '3':
+        return True
+    return False
 
 
 def handler(event, context):
@@ -24,4 +31,7 @@ def handler(event, context):
     logger.info(event)
     soup = BeautifulSoup(html_doc, 'html.parser')
     print(soup.prettify())
+    out_bytes = subprocess.check_output(["which", "git"])
+    if isPython3():
+        assert out_bytes == b'/code/.s/root/usr/bin/git'
     return event
