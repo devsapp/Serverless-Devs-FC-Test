@@ -1,0 +1,25 @@
+name: Serverless Devs Project CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    container: rsonghuster/fc-app-builder:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test fc-backend
+        run: |
+          bash test-fc-backend.sh

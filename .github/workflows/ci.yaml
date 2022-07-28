@@ -29,9 +29,6 @@ jobs:
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test fc-backend
-        run: |
-          bash test-fc-backend.sh
       - name: test python
         run: |
           bash test-python.sh

@@ -29,7 +29,6 @@ if [[ `uname` == 'Linux' ]]; then
   echo "test python3.6 runtime ..."
   rm -rf .s
   s build -d
-  s local invoke -e '{"hello":"fc"}'
   s deploy -y --use-local
   s invoke -e '{"hello":"fc"}'
 
@@ -38,7 +37,6 @@ if [[ `uname` == 'Linux' ]]; then
   export PATH=/usr/local/envs/py39/bin:$PATH
   python -V
   s build -d -t s-python39.yaml
-  s local invoke -e '{"hello":"fc"}' -t s-python39.yaml
   s deploy -y --use-local -t s-python39.yaml
   s invoke -e '{"hello":"fc"}' -t s-python39.yaml
 
@@ -46,13 +44,11 @@ if [[ `uname` == 'Linux' ]]; then
   echo "test nodejs12 runtime ..."
   rm -rf .s
   s build -d
-  s local invoke -e '{"hello":"fc"}'
   s deploy -y --use-local
   s invoke -e '{"hello":"fc"}'
 
   echo "test nodejs14 runtime ..."
   s build -d -t s-node14.yaml
-  s local invoke -e '{"hello":"fc"}' -t s-node14.yaml
   s deploy -y --use-local -t s-node14.yaml
   s invoke -e '{"hello":"fc"}' -t s-node14.yaml
 else
