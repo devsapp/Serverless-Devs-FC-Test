@@ -9,6 +9,20 @@ on:
       - main
 
 jobs:
+  fc-backend-ci:
+    runs-on: ubuntu-latest
+    container: rsonghuster/fc-app-builder:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test fc-backend
+        run: |
+          bash test-fc-backend.sh
   ci:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -29,9 +43,6 @@ jobs:
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test fc-backend
-        run: |
-          bash test-fc-backend.sh
       - name: test python
         run: |
           bash test-python.sh
