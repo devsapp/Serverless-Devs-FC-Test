@@ -6,4 +6,4 @@
 $ ./test.sh
 ```
 
-测试的是`component: devsapp/fc `,  如果完全没有问题， 至少保证了在各种 Runtime 的 `s build`,  `s local invoke`,  `s deploy`, `s invoke` 的 happy case 是没有问题的。
+测试的是`component: devsapp/fc `, 如果完全没有问题， 至少保证了在各种 Runtime 的 `s build`,  `s local invoke`,  `s deploy`, `s invoke` 的 happy case 是没有问题的。
