@@ -2,7 +2,7 @@
 set -x
 set -e
 
-export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-core@dev'
+// export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-core@dev'
 
 # Test Python Runtime
 cd python
