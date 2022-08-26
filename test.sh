@@ -3,7 +3,7 @@ set -x
 set -e
 # s clean --all 
 
-# export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-info@dev;devsapp/fc-plan@dev'
+export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-info@dev;devsapp/fc-plan@dev'
 
 # Test Java Runtime
 echo "test java8 runtime ..."

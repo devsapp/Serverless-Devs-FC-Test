@@ -3,7 +3,7 @@ set -x
 set -e
 s clean --all
 
-# export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-info@dev;devsapp/fc-plan@dev'
+export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-info@dev;devsapp/fc-plan@dev'
 
 if [[ `uname` == 'Linux' ]]; then
   echo "Linux test fc-backend start..."
