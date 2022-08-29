@@ -9,6 +9,7 @@ export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc-inf
 cd custom
 cd python
 
+
 echo "test custom python runtime event function ..."
 rm -rf .s
 s build -d
