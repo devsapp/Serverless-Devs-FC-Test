@@ -2,7 +2,8 @@
 set -x
 set -e
 
-export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/ram@dev'
+export FC_DOCKER_VERSION=1.10.4 
+# export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/ram@dev'
 
 # Test Python Runtime
 cd python

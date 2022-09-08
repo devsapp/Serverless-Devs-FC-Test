@@ -3,7 +3,8 @@ set -x
 set -e
 # s clean --component
 
-export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/ram@dev'
+export FC_DOCKER_VERSION=1.10.4 
+# export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/ram@dev'
 
 # Test Java Runtime
 echo "test java8 runtime ..."
