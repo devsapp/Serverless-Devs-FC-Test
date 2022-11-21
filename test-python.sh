@@ -3,7 +3,7 @@ set -x
 set -e
 
 # export FC_DOCKER_VERSION=1.10.4 
-# export core_load_serverless_devs_component='devsapp/fc-info@dev;devsapp/fc-deploy@dev'
+export core_load_serverless_devs_component='devsapp/fc@dev'
 
 # Test Python Runtime
 cd python
