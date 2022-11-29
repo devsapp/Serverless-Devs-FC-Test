@@ -4,7 +4,7 @@ set -e
 s clean --all
 
 # export FC_DOCKER_VERSION=1.10.4 
-export core_load_serverless_devs_component='devsapp/fc@dev'
+export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/fc-deploy@dev'
 
 # Test custom runtime
 cd custom
