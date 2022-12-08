@@ -22,3 +22,14 @@ echo "test custom python runtime http function ..."
 rm -rf .s
 s build -d -t s-http.yaml
 s deploy -y --use-local -t s-http.yaml
+
+cd ../springboot
+echo "test custom runtime springboot ..."
+rm -rf .s
+s deploy -y --use-local
+s invoke
+
+echo "test custom runtime springboot start java -jar ..."
+rm -rf .s
+s deploy -y --use-local -t s.jar.yaml
+s invoke -t s.jar.yaml
