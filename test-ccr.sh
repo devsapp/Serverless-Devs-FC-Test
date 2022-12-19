@@ -3,8 +3,8 @@ set -x
 set -e
 s clean --all
 
-# export FC_DOCKER_VERSION=1.10.4 
-export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/fc-deploy@dev'
+export FC_DOCKER_REGISTRY=registry.cn-beijing.aliyuncs.com 
+export core_load_serverless_devs_component='devsapp/fc-core@dev'
 
 # Test custom container
 cd custom-container
