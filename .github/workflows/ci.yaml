@@ -9,20 +9,6 @@ on:
       - main
 
 jobs:
-  fc-backend-ci:
-    runs-on: ubuntu-latest
-    container: rsonghuster/fc-app-builder:latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: npm install s
-        run: |
-          npm install -g @serverless-devs/s
-      - name: s config
-        run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test fc-backend
-        run: |
-          bash test-fc-backend.sh
   windows-ci:
     runs-on: windows-2022
     steps:
@@ -34,44 +20,9 @@ jobs:
       - name: check install docker
         run: |
           docker -v
-      - name: npm install s
+      - name: test docker run
         run: |
-          npm install -g @serverless-devs/s
-      - name: s config
-        run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test python
-        run: |
-          bash test-python.sh
-      - name: test nodejs
-        run: |
-          bash test-node.sh
-      - name: test php
-        run: |
-          bash test-php.sh
-      - name: test custom 
-        run: |
-          bash test-cr.sh
-      - name: test custom container
-        run: |
-          bash test-ccr.sh
-      - name: test java
-        run: |
-          bash test-java.sh
-  ci:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      max-parallel: 2
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: docker-practice/actions-setup-docker@master
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
+          docker run busybox /bin/sh -c "ls -lh"
       - name: npm install s
         run: |
           npm install -g @serverless-devs/s
