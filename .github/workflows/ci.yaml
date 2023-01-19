@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  fc-backend-ci:
+  simple-other-ci:
     runs-on: ubuntu-latest
     container: rsonghuster/fc-app-builder:latest
     steps:
@@ -23,6 +23,9 @@ jobs:
       - name: test fc-backend
         run: |
           bash test-fc-backend.sh
+      - name: test windows deploy&invoke
+        run: |
+          bash test-windows.sh
   ci:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -43,6 +46,9 @@ jobs:
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test golang
+        run: |
+          bash test-go.sh
       - name: test python
         run: |
           bash test-python.sh
