@@ -120,3 +120,20 @@ echo "test custom runtime springboot start java -jar ..."
 rm -rf .s
 s deploy -y --use-local -t s.jar.yaml
 s invoke -t s.jar.yaml -f ./event/http.json
+
+cd ../go
+echo "test custom runtime go ..."
+rm -rf .s
+s deploy -y --use-local
+s invoke -e "hello world from github action"
+s local invoke -e "hello world from github action local invoke"
+
+
+# Test go1.x Runtime
+cd ../go
+echo "test go1.x runtime ..."
+rm -rf .s
+s deploy -y --use-local
+s invoke -e '{"hello":"fc"}'
+
+s local invoke -e '{"hello":"fc local invoke"}'

@@ -19,7 +19,7 @@ s invoke -e '{"hello":"fc"}'
 # test acr image
 export TZ='Asia/Shanghai'
 
-echo "test php7.2 runtime use acr image ..."
+echo "test php7.2 runtime build/local-invoke use acr image ..."
 rm -rf .s
 s build -d
 s local invoke -e '{"hello":"fc"}'
