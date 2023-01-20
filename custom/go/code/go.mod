@@ -1,6 +1,6 @@
 module example.com/m
 
-go 1.18
+go 1.17
 
 require github.com/awesome-fc/golang-runtime v0.0.0-20230119040721-3f65ab4b97d3
 
