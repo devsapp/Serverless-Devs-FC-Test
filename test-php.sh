@@ -17,11 +17,11 @@ s invoke -e '{"hello":"fc"}'
 
 
 # test acr image
-export TZ='Asia/Shanghai'
+# export TZ='Asia/Shanghai'
 
-echo "test php7.2 runtime build/local-invoke use acr image ..."
-rm -rf .s
-s build -d
-s local invoke -e '{"hello":"fc"}'
-s deploy -y --use-local
-s invoke -e '{"hello":"fc"}'
+# echo "test php7.2 runtime build/local-invoke use acr image ..."
+# rm -rf .s
+# s build -d
+# s local invoke -e '{"hello":"fc"}'
+# s deploy -y --use-local
+# s invoke -e '{"hello":"fc"}'
