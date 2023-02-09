@@ -9,23 +9,6 @@ on:
       - main
 
 jobs:
-  simple-other-ci:
-    runs-on: ubuntu-latest
-    container: rsonghuster/fc-app-builder:latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: npm install s
-        run: |
-          npm install -g @serverless-devs/s
-      - name: s config
-        run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
-      - name: test fc-backend
-        run: |
-          bash test-fc-backend.sh
-      - name: test windows deploy&invoke
-        run: |
-          bash test-windows.sh
   ci:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -58,7 +41,7 @@ jobs:
       - name: test php
         run: |
           bash test-php.sh
-      - name: test custom 
+      - name: test custom
         run: |
           bash test-cr.sh
       - name: test custom container
@@ -67,3 +50,20 @@ jobs:
       - name: test java
         run: |
           bash test-java.sh
+  simple-other-ci:
+    runs-on: ubuntu-latest
+    container: rsonghuster/fc-app-builder:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test fc-backend
+        run: |
+          bash test-fc-backend.sh
+      - name: test windows deploy&invoke
+        run: |
+          bash test-windows.sh
