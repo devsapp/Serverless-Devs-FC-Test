@@ -21,3 +21,11 @@ s build -d -t s-java11.yaml
 s local invoke -e '{"hello":"fc"}' -t s-java11.yaml
 s deploy -y --use-local -t s-java11.yaml
 s invoke -e '{"hello":"fc"}' -t s-java11.yaml
+
+
+# Test java8 runtime,  jar no need zip
+s init start-fc-event-java8 -d /tmp/start-fc-event-java8 --parameters '{"region":"cn-shenzhen", "serviceName":"fc-build-demo"}'
+cd /tmp/start-fc-event-java8 && s deploy  -a quanxi -y --use-local && cd -
+s invoke -e "hello" -a quanxi
+rm -rf /tmp/start-fc-event-java8 
+cd ..
