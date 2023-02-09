@@ -25,7 +25,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
+          npm install -g @serverless-devs/s@2.1.9
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
+          npm install -g @serverless-devs/s@2.1.9
       - name: s config
         run: |
           s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
