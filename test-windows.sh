@@ -4,7 +4,7 @@ set -e
 # s clean --component
 
 # export FC_DOCKER_VERSION=1.10.6
-export core_load_serverless_devs_component='devsapp/fc-info@dev;devsapp/fc-plan@dev;devsapp/fc-deploy@dev'
+export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc@dev;devsapp/fc-build@dev'
 
 # Test go1.x Runtime
 cd go
