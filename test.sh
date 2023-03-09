@@ -4,7 +4,7 @@ set -e
 # s clean --component
 
 # export FC_DOCKER_VERSION=1.10.6
-export core_load_serverless_devs_component='devsapp/fc-deploy@dev;devsapp/fc@dev;devsapp/fc-build@dev'
+export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/domain@dev'
 
 # Test Java Runtime
 echo "test java8 runtime ..."
