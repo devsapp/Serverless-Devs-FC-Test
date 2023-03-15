@@ -3,8 +3,8 @@ set -x
 set -e
 s clean --all
 
-# export FC_DOCKER_VERSION=1.10.6
-export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/domain@dev'
+export FC_DOCKER_VERSION="dev"
+export core_load_serverless_devs_component='devsapp/fc-core@dev;devsapp/fc-build@dev;devsapp/fc-local-invoke@dev'
 
 # Test custom runtime
 cd custom
