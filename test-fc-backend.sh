@@ -3,11 +3,12 @@ set -x
 set -e
 s clean --all
 
-export FC_DOCKER_VERSION=1.10.6
+export FC_DOCKER_VERSION=1.10.7
 # export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/fc-deploy@dev'
 
-if [[ `uname` == 'Linux' ]]; then
+if [[ `uname` == 'Linux' || `uname` == 'Darwin' ]]; then
   echo "Linux test fc-backend start..."
+  export FC_ARCH=linux
   export BUILD_IMAGE_ENV=fc-backend
   # Test Python Runtime
   cd python

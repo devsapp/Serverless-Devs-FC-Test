@@ -19,7 +19,7 @@ services:
       region: ${vars.region}
       service: ${vars.service}
       function:
-        name: 'springboot'
+        name: springboot
         description: 'Serverless Devs Web Framework Function'
         codeUri: ./code/target/webframework.jar
         runtime: custom
