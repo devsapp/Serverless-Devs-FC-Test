@@ -26,7 +26,79 @@ jobs:
       - name: test windows deploy&invoke
         run: |
           bash test-windows.sh
-  ci:
+  python:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 3
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker-practice/actions-setup-docker@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test python
+        run: |
+          bash test-python.sh
+  nodejs:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 3
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker-practice/actions-setup-docker@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test nodejs
+        run: |
+          bash test-node.sh
+  custom:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 3
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker-practice/actions-setup-docker@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: npm install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: s config
+        run: |
+          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+      - name: test custom.debian10
+        run: |
+          bash test-cr-debian10.sh
+      - name: test custom 
+        run: |
+          bash test-cr.sh
+  other-runtimes:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 3
@@ -49,18 +121,9 @@ jobs:
       - name: test golang
         run: |
           bash test-go.sh
-      - name: test python
-        run: |
-          bash test-python.sh
-      - name: test nodejs
-        run: |
-          bash test-node.sh
       - name: test php
         run: |
           bash test-php.sh
-      - name: test custom 
-        run: |
-          bash test-cr.sh
       - name: test custom container
         run: |
           bash test-ccr.sh

@@ -21,14 +21,17 @@ services:
         name: fc-build-demo
         description: 'hello world by serverless devs'
       function:
-        name: custom-python-http
+        name: custom-python310-event-debian10
         handler: index.handler
         timeout: 60
         memorySize: 1536
-        runtime: custom
+        runtime: custom.debian10
         codeUri: ./code
-        caPort: 9000
         instanceConcurrency: 2
+        environmentVariables:
+          PATH: /code/.s/root/usr/local/bin:/code/.s/root/usr/local/sbin:/code/.s/root/usr/bin:/code/.s/root/usr/sbin:/code/.s/root/sbin:/code/.s/root/bin:/code:/code/node_modules/.bin:/code/.s/node_modules/.bin:/code/.s/python/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/bin
+          LD_LIBRARY_PATH: /code/.s/root/usr/local/lib:/code/.s/root/usr/lib:/code/.s/root/usr/lib/x86_64-linux-gnu:/code/.s/root/usr/lib64:/code/.s/root/lib:/code/.s/root/lib/x86_64-linux-gnu:/code:/code/lib:/usr/local/lib
+          PYTHONUSERBASE: /code/.s/python
         customRuntimeConfig:
           command:
             - gunicorn
@@ -36,16 +39,3 @@ services:
             - '-c'
             - 'gunicorn_conf.py'
             - 'server:app'
-      triggers:
-        - name: http_t
-          type: http
-          config:
-            authType: anonymous
-            methods:
-              - GET
-              - POST
-      customDomains:
-        - domainName: auto
-          protocol: HTTP
-          routeConfigs:
-            - path: /*

@@ -4,12 +4,10 @@ set -e
 s clean --all
 
 export FC_DOCKER_VERSION=1.10.7
-# export core_load_serverless_devs_component='devsapp/fc@dev;devsapp/fc-deploy@dev'
+export core_load_serverless_devs_component='devsapp/fc-core@dev;devsapp/fc@dev;devsapp/fc-deploy@dev;devsapp/fc-build@dev;;devsapp/fc-local-invoke@dev'
 
 # Test custom runtime
-cd custom
-cd python
-
+cd custom.debian10/python
 
 echo "test custom python runtime event function ..."
 rm -rf .s
@@ -23,18 +21,6 @@ rm -rf .s
 s build -d -t s-http.yaml
 s deploy -y --use-local -t s-http.yaml
 s invoke -f ./event/http.json
-
-cd ../springboot
-echo "test custom runtime springboot ..."
-rm -rf .s
-s deploy -y --use-local
-s invoke -f ./event/http.json
-
-echo "test custom runtime springboot start java -jar ..."
-rm -rf .s
-s deploy -y --use-local -t s.jar.yaml
-s invoke -t s.jar.yaml -f ./event/http.json
-
 
 
 cd ../go

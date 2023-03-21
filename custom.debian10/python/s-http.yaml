@@ -21,11 +21,11 @@ services:
         name: fc-build-demo
         description: 'hello world by serverless devs'
       function:
-        name: custom-python-http
+        name: custom-python310-http-debian10
         handler: index.handler
         timeout: 60
         memorySize: 1536
-        runtime: custom
+        runtime: custom.debian10
         codeUri: ./code
         caPort: 9000
         instanceConcurrency: 2
