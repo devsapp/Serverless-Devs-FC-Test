@@ -4,7 +4,7 @@ set -e
 s clean --all
 
 # export FC_DOCKER_VERSION=1.10.8
-export core_load_serverless_devs_component='devsapp/fc-core@dev;devsapp/fc-deploy@dev;devsapp/fc@dev;devsapp/nas@dev'
+# export core_load_serverless_devs_component='devsapp/fc-core@dev;devsapp/fc-deploy@dev;devsapp/fc@dev;devsapp/nas@dev'
 
 # Test Php7.2 Runtime
 cd php
