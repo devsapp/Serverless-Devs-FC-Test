@@ -35,6 +35,12 @@ if [[ `uname` == 'Linux' || `uname` == 'Darwin' ]]; then
   s build -d -t s-node14.yaml
   s deploy -y --use-local -t s-node14.yaml
   s invoke -e '{"hello":"fc"}' -t s-node14.yaml
+
+
+  echo "test nodejs16 runtime ..."
+  s build -d -t s-node16.yaml
+  s deploy -y --use-local -t s-node16.yaml
+  s invoke -e '{"hello":"fc"}' -t s-node16.yaml
 else
   echo "no need test!"
 fi
