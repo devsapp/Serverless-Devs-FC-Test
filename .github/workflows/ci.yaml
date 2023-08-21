@@ -14,9 +14,12 @@ jobs:
     container: rsonghuster/fc-app-builder:latest
     steps:
       - uses: actions/checkout@v2
-      - name: s config
+      - name: npm install s
         run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+          npm install -g @xsahxl/s
+      - name: s3 config
+        run: |
+          s3 config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
       - name: test fc-backend
         run: |
           bash test-fc-backend.sh
@@ -39,10 +42,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
-      - name: s config
+          npm install -g @xsahxl/s
+      - name: s3 config
         run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+          s3 config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
       - name: test python
         run: |
           bash test-python.sh
@@ -62,10 +65,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
-      - name: s config
+          npm install -g @xsahxl/s
+      - name: s3 config
         run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+          s3 config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
       - name: test nodejs
         run: |
           bash test-node.sh
@@ -85,10 +88,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
-      - name: s config
+          npm install -g @xsahxl/s
+      - name: s3 config
         run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+          s3 config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
       - name: test custom.debian10
         run: |
           bash test-cr-debian10.sh
@@ -111,10 +114,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: npm install s
         run: |
-          npm install -g @serverless-devs/s
-      - name: s config
+          npm install -g @xsahxl/s
+      - name: s3 config
         run: |
-          s config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
+          s3 config add --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a quanxi -f
       - name: test golang
         run: |
           bash test-go.sh
